@@ -16,9 +16,9 @@ int main(int argc, char *argv[])
 	{
 		fprintf(stderr, "Syntax: %s [Width] [Height] [-nNumber] filename\n", argv[0]);
 		fprintf(stderr, "To extract <number> frames of raw video with resolution of <Width x Height>\n");
+		return 1;
 	}
 
-
-	return 0;
+	return 0; /* Everything Ok. */
 }
 
