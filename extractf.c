@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <strings.h>
 #include <errno.h>
+
+#ifndef FRAMES_NO
+ #define FRAMES_NO 8
+#endif
 
 #ifndef DEFWIDTH
  #define DEFWIDTH 176
@@ -11,6 +17,7 @@
 
 int main(int argc, char *argv[])
 {
+	int W=DEFWIDTH, H=DEFHEIGHT, frames=FRAMES_NO;
 
 	if (argc < 2)
 	{
@@ -18,7 +25,29 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "To extract <number> frames of raw video with resolution of <Width x Height>\n");
 		return 1;
 	}
+	if (argc == 3)
+	{
+		if (!index(argv[1], '-')
+		{
+			W=atoi(argv[1]);
+			H=atoi(argv[2]);
+			if ((W==0) || (H==0))	
+			{
+				fprintf(stderr, "Wrong arguments!\n");
+				return 1;
+			}
+		}
+		else
+		{
+			frames=atoi(*(argv+1)+2);
+			if (frames==0)
+			{
+
+				fprintf(stderr, "Wrong arguments!\n");
+				return 1;
+			}
+		}
+	}
 
 	return 0; /* Everything Ok. */
 }
-
