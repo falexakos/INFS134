@@ -1,19 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <strings.h>
-#include <errno.h>
-
-#ifndef FRAMES_NO
- #define FRAMES_NO 8
-#endif
-
-#ifndef DEFWIDTH
- #define DEFWIDTH 176
-#endif
-#ifndef DEFHEIGHT
- #define DEFHEIGHT 144
-#endif
+#include "dct.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,7 +12,7 @@ int main(int argc, char *argv[])
 	}
 	if (argc == 3)
 	{
-		if (!index(argv[1], '-')
+		if (!index(argv[1], '-'))
 		{
 			W=atoi(argv[1]);
 			H=atoi(argv[2]);
