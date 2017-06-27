@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	int W=DEFWIDTH, H=DEFHEIGHT, frames=FRAMES_NO;
+	int W=MAXWIDTH, H=MAXHEIGHT, frames=FRAMES_NO;
 
 	if (argc < 2)
 	{
