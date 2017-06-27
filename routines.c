@@ -42,3 +42,17 @@ void transposeMatr(double a[4][4], double aT[4][4])
 	   aT[i][j]=a[j][i];
 }
 
+void readFrame(FILE *rawv, uchar theframe[MAXHEIGHT][MAXWIDTH], int h, int w)
+{
+	uchar Ybuf[h*w], YLEN=h*w;
+	register int i,j,k=0;
+
+	initCoefs(A,0); transposeMatr(A, AT);
+	fread(Ybuf, 1, YLEN, rawv);
+	for (j=0; j<w; j++) 
+         for (i=0;i<h;i++) theframe[i][j]=Ybuf[k++]; 
+	fread(Ybuf, 1, (int)(YLEN/2), rawv); /* Skip chroma data */
+	return;
+}
+
+
