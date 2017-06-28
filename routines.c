@@ -47,12 +47,27 @@ void readFrame(FILE *rawv, uchar theframe[MAXHEIGHT][MAXWIDTH], int h, int w)
 	uchar Ybuf[h*w], YLEN=h*w;
 	register int i,j,k=0;
 
-	initCoefs(A,0); transposeMatr(A, AT);
 	fread(Ybuf, 1, YLEN, rawv);
+	if (ferror(rawv)!=0)
+  	{
+		perror("readFrame()");
+		exit(2);
+	}
 	for (j=0; j<w; j++) 
-         for (i=0;i<h;i++) theframe[i][j]=Ybuf[k++]; 
-	fread(Ybuf, 1, (int)(YLEN/2), rawv); /* Skip chroma data */
+       	 for (i=0;i<h;i++) theframe[i][j]=Ybuf[k++]; 
+	  fread(Ybuf, 1, (int)(YLEN/2), rawv); /* Skip chroma data */
+	if (ferror(rawv)!=0)
+	{
+		perror("readFrame()");
+		exit(2);
+	}
 	return;
 }
 
+void performDCT(uchar theframe[MAXHEIGHT][MAXWIDTH], int h, int w)
+{
+	initCoefs(A,0); transposeMatr(A, AT);
+
+	return;
+}
 

@@ -23,4 +23,5 @@ extern void matr_mult(double a[4][4], double b[4][4], double c[4][4]);
 extern void initCoefs(double Amatr[4][4], short);
 extern void transposeMatr(double a[4][4], double aT[4][4]);
 extern void readFrame(FILE *rawv, uchar theframe[MAXHEIGHT][MAXWIDTH], int h, int w);
+extern void performDCT(uchar theframe[MAXHEIGHT][MAXWIDTH], int h, int w);
 
