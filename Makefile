@@ -1,4 +1,5 @@
-CFLAGS = -g -w 
+CFLAGS = -DMAXWIDTH=352 -DMAXHEIGHT=288 -g -w 
+# CIF Format: 352x288
 LIBS = -lm
 OBJS = extractf.o routines.o 
 CC = gcc
