@@ -6,7 +6,6 @@ int main(int argc, char *argv[])
 	register int i;
 	uchar curframe[MAXHEIGHT][MAXWIDTH];
 	char fname[256];
-	FILE *fp;
 
 	if (argc < 2)
 	{
@@ -75,7 +74,8 @@ int main(int argc, char *argv[])
 	}
 	for (i=0;i<frames;i++)
 	{
-		readFrame(fp, curframe, H, W);
+		readFrame(fp,curframe, H, W);
+		printf("Calculating DCT for frame no. %d ...\n", i+1);
 		performDCT(curframe, H, W);
 	}
 	fclose(fp);

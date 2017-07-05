@@ -16,9 +16,12 @@
 #ifndef MAXHEIGHT
  #define MAXHEIGHT 144
 #endif
+#define ARRAYS (int)(MAXWIDTH*MAXHEIGHT)/16
 
 typedef unsigned char uchar;
-double A[4][4], AT[4][4], C[4][4], CT[4][4],Ytemp[4][4]; 
+double A[4][4], AT[4][4], C[4][4], CT[4][4]; 
+FILE *fp;
+extern void clearMatr16(double m[4][4]);
 extern void matr_mult(double a[4][4], double b[4][4], double c[4][4]);
 extern void initCoefs(double Amatr[4][4], short);
 extern void transposeMatr(double a[4][4], double aT[4][4]);
