@@ -113,6 +113,7 @@ void performDCT(uchar theframe[MAXHEIGHT][MAXWIDTH], int h, int w)
 	transposeMatr(C,CT);
 	clearMatr16(energies);
 	/* Perform DCT (with "rounded" constants) for each 4x4 submatrix */
+	/**********
 	m=0;k=0;l=0;
 	do
 	{
@@ -127,7 +128,7 @@ void performDCT(uchar theframe[MAXHEIGHT][MAXWIDTH], int h, int w)
 		energies[q][p]+=Y[m][q][p]*Y[m][q][p];
 	   }
 	  m++;
-	  k=(k+4)%w; /*k+=4; if (k>=w) k=0;*/
+	  k=(k+4)%w; 
 	  if (k==0) l+=4;
 	}
 	while (l<h);
@@ -136,6 +137,7 @@ void performDCT(uchar theframe[MAXHEIGHT][MAXWIDTH], int h, int w)
 	for (i=0; i<4; i++)
 	 for (j=0;j<4;j++) printf("%d.Average Energy for [%d , %d] is %.3lf\n", ++l,i+1,j+1,energies[i][j]/(double)arrs);
 	putchar('\n');
+	**********/
 	return;
 }
 
