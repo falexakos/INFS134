@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/time.h>
+#include <sys/resource.h>
 #include <ctype.h>
 #include <strings.h>
 #include <errno.h>
@@ -11,10 +13,10 @@
 #endif
 
 #ifndef MAXWIDTH
- #define MAXWIDTH 176
+ #define MAXWIDTH 352
 #endif
 #ifndef MAXHEIGHT
- #define MAXHEIGHT 144
+ #define MAXHEIGHT 288
 #endif
 #define ARRAYS (int)(MAXWIDTH*MAXHEIGHT)/16
 
