@@ -13,10 +13,10 @@
 #endif
 
 #ifndef MAXWIDTH
- #define MAXWIDTH 352
+ #define MAXWIDTH 1920
 #endif
 #ifndef MAXHEIGHT
- #define MAXHEIGHT 288
+ #define MAXHEIGHT 1080
 #endif
 #define ARRAYS (int)(MAXWIDTH*MAXHEIGHT)/16
 
