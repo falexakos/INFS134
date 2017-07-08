@@ -2,11 +2,27 @@
 
 int main(int argc, char *argv[])
 {
-	int W=MAXWIDTH, H=MAXHEIGHT, frames=FRAMES_NO;
+	int W=MAXWIDTH, H=MAXHEIGHT, frames=FRAMES_NO, result;
+	const rlim_t kStackSize = 32L * 1024L * 1024L; /* ~32MB as a stack limit */
+	struct rlimit rl;
 	register int i;
 	uchar curframe[MAXHEIGHT][MAXWIDTH];
 	char fname[256];
 
+	result = getrlimit(RLIMIT_STACK, &rl);
+    	if (result == 0)
+    	{
+        	if (rl.rlim_cur < kStackSize)
+        	{
+            		rl.rlim_cur = kStackSize;
+	            	result = setrlimit(RLIMIT_STACK, &rl);
+            		if (result != 0)
+			{
+				perror("main()");
+				exit(2);
+			}
+		}
+	}
 	if (argc < 2)
 	{
 		fprintf(stderr, "Syntax: %s [Width] [Height] [-nNumber] filename\n", argv[0]);
