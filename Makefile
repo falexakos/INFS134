@@ -1,5 +1,5 @@
-CFLAGS = -DMAXWIDTH=176 -DMAXHEIGHT=144 -g -w 
-# CIF Format: 352x288
+CFLAGS = -DMAXWIDTH=1920 -DMAXHEIGHT=1080 -g -w 
+# 'Real' resolution Format: 1920x1080. Huge files...
 LIBS = -lm
 OBJS = extractf.o routines.o 
 CC = gcc
