@@ -3,7 +3,7 @@
 int main(int argc, char *argv[])
 {
 	int W=MAXWIDTH, H=MAXHEIGHT, frames=FRAMES_NO, result;
-	const rlim_t kStackSize = 32L * 1024L * 1024L; /* ~32MB as a stack limit */
+	const rlim_t kStackSize = 32L * 1024L * 1024L; /* 32MB as a stack limit */
 	struct rlimit rl;
 	register int i;
 	uchar curframe[MAXHEIGHT][MAXWIDTH];
