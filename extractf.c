@@ -9,6 +9,8 @@ int main(int argc, char *argv[])
 	uchar curframe[MAXHEIGHT][MAXWIDTH];
 	char fname[256];
 
+	/* Increase stack size (see ulimit(1) bash built-in command) allowing us to pass 
+	really large arrays to performDCT() */
 	result = getrlimit(RLIMIT_STACK, &rl);
     	if (result == 0)
     	{
@@ -22,6 +24,11 @@ int main(int argc, char *argv[])
 				exit(2);
 			}
 		}
+	}
+	else
+	{
+		perror("main()");
+		exit(1);
 	}
 	if (argc < 2)
 	{
